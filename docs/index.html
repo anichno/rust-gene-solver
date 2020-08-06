@@ -7,41 +7,32 @@
   </head>
   <body>
     <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
-    <label for="gene_g">G:</label>
-    <select id="gene_g">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option selected="selected" value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-    </select>
+    <label for="goal">Goal:</label>
+    <div id="goal">
+      <label for="gene_g">G:</label>
+      <select id="gene_g">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option selected="selected" value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
 
-    <label for="gene_y">Y:</label>
-    <select id="gene_y">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option selected="selected" value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-    </select>
+      <label for="gene_y">Y:</label>
+      <select id="gene_y">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option selected="selected" value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
 
-    <label for="gene_h">H:</label>
-    <select id="gene_h">
-      <option value="0">0</option>
-      <option selected="selected" value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-    </select>
-
-    <label for="gene_w">W:</label>
-    <select id="gene_w">
+      <label for="gene_h">H:</label>
+      <select id="gene_h">
         <option selected="selected" value="0">0</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -49,25 +40,43 @@
         <option value="4">4</option>
         <option value="5">5</option>
         <option value="6">6</option>
-    </select>
+      </select>
 
-    <label for="gene_x">X:</label>
-    <select id="gene_x">
-      <option selected="selected" value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-    </select>
+      <label for="gene_w">W:</label>
+      <select id="gene_w">
+        <option selected="selected" value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+
+      <label for="gene_x">X:</label>
+      <select id="gene_x">
+        <option selected="selected" value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+
 
     <p></p>
-    <textarea id="available_plants" rows="30" cols="10"></textarea>
+    <textarea id="available_plants" rows="30" cols="10" placeholder="Available Plants"></textarea>
+    <p></p>
+    <button id="sample-data-button">Load Sample Data</button>
     <p></p>
     <button id="solve-button">Solve</button>
     <p>Output:</p>
     <pre id="output"></pre>
+
+    <p></p>
+    <a href="https://github.com/anichno/rust-gene-solver">Source Code</a>
     <script src="./bootstrap.js"></script>
   </body>
 </html>

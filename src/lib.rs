@@ -145,12 +145,22 @@ fn crossbreed_generation(goal: &GeneSet, plants: HashSet<[Gene; 6]>) -> Option<S
 }
 
 #[wasm_bindgen]
-pub fn run_demo(g: i32, y: i32, h: i32, w: i32, x: i32, plant_txt: &str) -> String {
+pub fn solve(g: i32, y: i32, h: i32, w: i32, x: i32, plant_txt: &str) -> String {
     utils::set_panic_hook();
+    if g + y + h + w + x != 6 {
+        return "Number of genes in goal does not add to 6".to_string();
+    }
+
+    let valid_gene_re = regex::Regex::new(r"^[GYHWX]{6}$").unwrap();
+
     let  goal = GeneSet{g, y, h, w, x};
 
     let mut plants = HashSet::new();
     for line in plant_txt.lines() {
+        let line = line.to_ascii_uppercase();
+        if !valid_gene_re.is_match(&line) {
+            return format!("Invalid Gene Set: {}", line).to_string();
+        }
         let mut new_plant = [Gene::X; 6];
         for (i, c) in line.chars().enumerate() {
             let gene = match c {
